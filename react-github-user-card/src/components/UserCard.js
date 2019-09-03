@@ -1,27 +1,45 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles({
+    card: {
+      minWidth: 275,
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
 
 function UserCard(props) {
+    const classes = useStyles();
+    const bull = <span className={classes.bullet}>•</span>;
+
     return (
-        <div class="card mb-3" >
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="..." class="card-img" alt="not avail" />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h3 class="card-title">{props.user.login}</h3>
-                        <p class="card-text">Location: {props.user.location || "unknown"}</p>
-                        <p>Followers: 
+        <Card class={classes.card} >
+            <CardContent>
+                        <Typography className={classes.title} color="textPrimary" gutterBottom>{props.user.login}</Typography>
+                        <Typography className={classes.pos} color="textSecondary">Location: {props.user.location || "unknown"}</Typography>
+                        <Typography variant="body2" component="p">Followers: 
                         {props.followers.map(follower => (
-                            <div key={follower.id}>{follower.login}</div>
+                            <div key={follower.id}>{bull}{follower.login}</div>
                         ))}
-                        </p>
+                        </Typography>
                         <p class="card-text"><small class="text-muted">{props.user.url}</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </CardContent>
+        </Card>
     )
 };
     

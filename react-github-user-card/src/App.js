@@ -1,7 +1,7 @@
 import React from 'react'; 
 import './App.css';
 import UserCard from './components/UserCard.js';
-// import axios from 'axios';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +16,7 @@ class App extends React.Component {
     // axios
     //     .get ('https://api.github.com/users/epicenedev')
     //     .then (res => console.log('api returned: ', res ))
-    //     .then (data => this.setState({ user: data }))
+    //     .then (res => this.setState({ user: res.data }))
     //     .catch(err => console.log("api req error!", err));
     fetch('https://api.github.com/users/epicenedev')
       .then(res => res.json())
