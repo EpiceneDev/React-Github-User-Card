@@ -36,6 +36,7 @@ class App extends React.Component {
         <div className="user">
             <h1>Github Users</h1>
             <UserCard user={this.state.user} followers={this.state.followers} />
+            <img src={`http://ghchart.rshah.org/${this.state.user.login}`} />
         </div>
     )
   };
