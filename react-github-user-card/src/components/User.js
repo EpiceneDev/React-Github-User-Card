@@ -5,14 +5,12 @@ class User extends React.Component {
     //     super();
     //     state
     // }
-    state = {
-        users: []
-    }
-
+   
     render() {
         return (
-            <div>
-                <h1>hello</h1>
+            <div className="user">
+                <h1>Github Users</h1>
+                {/* {this.state.users.map(user => )} */}
             </div>
         )
     }
