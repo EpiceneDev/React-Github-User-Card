@@ -8,7 +8,9 @@ function UserCard(props) {
             <h2>{props.user.login}</h2>
             <p>{props.user.location}</p>
             <p>{props.user.url}</p>
-            {/* {this.state.users.map(user => )} */}
+            {props.followers.map(follower => (
+                <div key={follower.id}>{follower.login}</div>
+            ))}
         </div>
     )
 }
