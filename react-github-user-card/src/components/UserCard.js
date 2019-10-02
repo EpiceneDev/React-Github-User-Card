@@ -1,24 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Link } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { tomato } from '@material-ui/core/colors';
+// import HUE from '@material-ui/core/colors/HUE';
 
 const useStyles = makeStyles({
     card: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      //background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       minWidth: 275,
       maxWidth: 275,
-      borderRadius: 30
+      borderRadius: 30,
+      //background: '#673AB7'
     },
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
       transform: 'scale(0.8)',
+      color: '#673AB7'
     },
     title: {
-      fontSize: 14,
+      fontSize: 20,
     },
     pos: {
       marginBottom: 12,
@@ -39,7 +41,7 @@ function UserCard(props) {
                             <div key={follower.id}>{bull}{follower.login}</div>
                         ))}
                         </Typography>
-                        <p class="card-text"><small class="text-muted">{props.user.url}</small></p>
+                        <a href="https://api.github.com/users/epicenedev" class="card-text"><small class="text-muted">{props.user.url}</small></a>
             </CardContent>
         </Card>
     )

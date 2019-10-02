@@ -13,14 +13,20 @@ class App extends React.Component {
   }
   
   componentDidMount() {  //runs on first render
-  
+    // axios
+    //     .get ('https://api.github.com/users/epicenedev')
+    //     .then (res => console.log('api returned: ', res ))
+    //     .then (res => this.setState({ user: res.data }))
+    //     .catch(err => console.log("api req error!", err));
     fetch('https://api.github.com/users/epicenedev')
       .then(res => res.json())
-      .then(data => this.setState({ user: data }));
+      .then(data => this.setState({ user: data }))
+      .catch(err => console.log('API user error: ', err))
 
     fetch('https://api.github.com/users/epicenedev/followers')
       .then(res => res.json())
       .then(data => this.setState({ followers: data }))
+      .catch(err => console.log('API follower error: ', err))
   };
 
   componentDidUpdate() {   //runs everytime render except first
